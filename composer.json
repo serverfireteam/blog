@@ -1,5 +1,5 @@
 {
-    "name": "serverfireteam/panel",
+    "name": "serverfireteam/blog",
     "description": "A nice blog system with laravel and laravelpanel",
     "keywords": ["Laravel", "Blog","CMS","administrator", "admin", "backend"],
     "license": "MIT",
