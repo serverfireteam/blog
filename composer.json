@@ -1,0 +1,43 @@
+{
+    "name": "serverfireteam/panel",
+    "description": "A nice blog system with laravel and laravelpanel",
+    "keywords": ["Laravel", "Blog","CMS","administrator", "admin", "backend"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "siavash",
+            "email": "siavash@serverfire.net"
+        },
+        {
+        "name": "Alireza Aboutalebi",
+        "email": "ali@serverfire.net"
+        },
+        {
+        "name": "Hamid Reza Salimian ",
+        "email": "hamid@salimian.me"
+        },
+        {
+        "name": "Alenoosh Baghoomian",
+        "email": "hope2end@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",        
+        "illuminate/support": "5.0.*",
+        "serverfireteam/panel" : "dev-laravel5"
+    },
+    "autoload": {
+
+        "classmap": [
+            "src/controllers",
+            "src/views",
+            "src/models",
+            "src/database/migrations"
+        ],
+        "psr-0": {
+            "Serverfireteam\\blog": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+    
+}
