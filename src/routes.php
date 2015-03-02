@@ -12,10 +12,9 @@
 */
 
 // config panel to load from our namespace for panel 
-if (\Request::is('panel/blog/*'))
+if (\Request::is('panel/Blog/*'))
 {
-    
     \Config::set('panel.controllers', 'Serverfireteam\blog\panel');
 }
 
-Route::controller('/blog', 'BlogController');
+Route::controller('/blog', '\Serverfireteam\blog\BlogController');

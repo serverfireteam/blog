@@ -17,7 +17,7 @@ class BlogController extends \Serverfireteam\Panel\CrudController {
         
         parent::all($entity); 
         
-        $this->filter = \DataFilter::source(new \Blog());
+        $this->filter = \DataFilter::source(new \App\Blog());
         $this->filter->add('id', 'ID', 'text');
         $this->filter->add('title', 'Title', 'text');
         $this->filter->submit('search');
@@ -38,7 +38,7 @@ class BlogController extends \Serverfireteam\Panel\CrudController {
         
         parent::edit($entity);
               
-        $this->edit = \DataEdit::source(new \Blog());
+        $this->edit = \DataEdit::source(new \App\Blog());
         
         $this->edit->label('Edit Project');     
         $this->edit->add('title','post title', 'text')->rule('required|min:3');

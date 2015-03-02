@@ -5,22 +5,22 @@ use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Translation;
 
-class PanelServiceProvider extends ServiceProvider
+class BlogServiceProvider extends ServiceProvider
 {
     protected $defer = false;
         
     public function register()
     {
 
+
         // register panel service provider 
-        $this->app->register('Illuminate\Html\HtmlServiceProvider');
+        $this->app->register('Serverfireteam\Panel\PanelServiceProvider');
 
         
-        
-        include __DIR__."/Commands/ServerfireteamCommand.php";
+        include __DIR__."/Commands/Command.php";
         $this->app['blog::install'] = $this->app->share(function()
         {
-            return new \Serverfireteam\Blog\Commands\Command();
+            return new \Serverfireteam\Blog\Commands\BlogCommand();
         });
 
         $this->commands('blog::install');
@@ -34,6 +34,7 @@ class PanelServiceProvider extends ServiceProvider
         
     public function boot()
     {        
+
 
         $this->loadViewsFrom(__DIR__.'/../../views', 'blog');
         $this->publishes([

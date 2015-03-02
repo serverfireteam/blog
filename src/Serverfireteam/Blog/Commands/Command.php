@@ -4,7 +4,7 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class Command extends Command {
+class BlogCommand extends Command {
 
 	/**
 	 * The console command name.
@@ -40,9 +40,14 @@ class Command extends Command {
         
         $this->call('vendor:publish');
         
-        $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
+        $this->call('migrate', array('--path' => 'vendor/serverfireteam/blog/src/database/migrations'));
 
         $this->call('panel:install');
+
+        // add blog to menu 
+        $link = new \Serverfireteam\Panel\Link();
+        $link->getAndSave('Blog', 'Blog');
+        $link->save();
         
 	}
 

@@ -1,4 +1,4 @@
-@extends('blog.master')
+@extends('blog::master')
 
 @section('body')
 <div class="container index">
@@ -6,12 +6,11 @@
     <div class="clearfix top">
         <nav>
             <ul class="nav nav-pills pull-right">
-                <li class="active">{{HTML::link('/blog','Last Post')}}</li>
-                <li>{{HTML::link('/','Back to Serverfire')}}</li>
-                <li>{{HTML::link('/#contact-us','Contact Us')}}</a</li>
+                <li class="active">{!! Html::link('/blog','Last Post') !!}</li>
+                <li>{!! Html::link('/','Back to Site') !!}</li>
             </ul>
         </nav>
-        <h3 class="text-muted">{{HTML::link('/blog','Serverfire Blog')}}</h3>
+        <h3 class="text-muted">{!! Html::link('/blog',\Config::get('blog.title')) !!}</h3>
     </div>
      @if(count($last)==0)
                <div class="alert alert-warning" role="alert">Noting to see, go to panel and post something first !</div>
@@ -25,7 +24,7 @@
         <a href="{{$mostRecommended->getUrl()}}"><h1>{{$mostRecommended['title']}}</h1>
 
             <h4>
-                {{substr($mostRecommended['content'], 0, 150);}}...
+               {{ str_limit(strip_tags($mostRecommended['content']),150) }}...
             </h4>
             <p>{{$mostRecommended['author']}}</p>
         </a>
@@ -42,7 +41,7 @@
                 </div>
                 <div class="col-md-9">
                     <h3 class="list-group-item-heading">{{$post['title']}}</h3>
-                    <p class="list-group-item-text"> {{substr(strip_tags($post['content']), 0, 150);}}... </p>
+                    <p class="list-group-item-text"> {{substr(strip_tags($post['content']), 0, 150)}}... </p>
                     <small>{{$post['author']}}</small>
                 </div>
                 </a>

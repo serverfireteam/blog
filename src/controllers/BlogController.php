@@ -1,6 +1,11 @@
 <?php namespace Serverfireteam\blog;
 
-class BlogController extends \BaseController {
+use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+
+
+class BlogController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,11 +15,11 @@ class BlogController extends \BaseController {
 	 */
 	public function getIndex()
 	{
-            $mostRecommended = Blog::mostRecommended();
-            $last            = Blog::lastPosts();
+            $mostRecommended = \App\Blog::mostRecommended();
+            $last            = \App\Blog::lastPosts();
             //echo'<pre>';
             //dd($mostRecommended);
-            return View::make('blog.index',array('title'=>"Wellcome ",'mostRecommended'=>$mostRecommended,'last'=>$last));
+            return View('blog::index',array('title'=>"Wellcome ",'mostRecommended'=>$mostRecommended,'last'=>$last));
 	}
 
     public static function seoUrl($string) {
@@ -37,11 +42,11 @@ class BlogController extends \BaseController {
 	 */
 	public function getPost($id)
 	{
-            $post = Blog::find($id);
+            $post = \App\Blog::find($id);
             if($post == NULL){
                 App::abort(404);
             }
-            return View::make('blog.post',array('title'=>$post['title'],'post'=>$post));
+            return View('blog::post',array('title'=>$post['title'],'post'=>$post));
 	}
         
     /**
@@ -52,7 +57,7 @@ class BlogController extends \BaseController {
     public function getShare($id,$social)
     {
         $url = '';
-        $post = Blog::find($id);
+        $post = \App\Blog::find($id);
         if($post == NULL){
             App::abort(404);
         }
@@ -77,7 +82,7 @@ class BlogController extends \BaseController {
                 $url .= 'url='.$post->getUrl().'&title='.$post['title'].'&summary=&source=';
             break;          
         }
-        return Redirect::to($url);
+        return \Redirect::to($url);
     }
 
 
