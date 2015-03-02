@@ -24,7 +24,7 @@
     "require": {
         "php": ">=5.4.0",        
         "illuminate/support": "5.0.*",
-        "serverfireteam/panel" : "dev-laravel5"
+        "serverfireteam/panel": "1.2.*"
     },
     "autoload": {
 
