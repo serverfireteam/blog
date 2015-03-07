@@ -35,7 +35,7 @@
             "src/database/migrations"
         ],
         "psr-0": {
-            "Serverfireteam\\blog": "src/"
+            "Serverfireteam\\Blog": "src/"
         }
     },
     "minimum-stability": "dev"
