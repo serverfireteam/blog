@@ -1,4 +1,4 @@
-<?php namespace Serverfireteam\blog;
+<?php namespace Serverfireteam\Blog;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
@@ -11,8 +11,6 @@ class BlogServiceProvider extends ServiceProvider
         
     public function register()
     {
-
-
         // register panel service provider 
         $this->app->register('Serverfireteam\Panel\PanelServiceProvider');
 
