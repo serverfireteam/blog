@@ -24,7 +24,7 @@ Note: if you face any problem in any of the steps you should report it at [githu
 
     ```php
     'providers' => array(
-        'Serverfireteam\blog\BlogServiceProvider'
+        'Serverfireteam\Blog\BlogServiceProvider'
     )
     ```
 
