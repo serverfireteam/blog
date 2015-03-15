@@ -61,9 +61,12 @@ class BlogController extends BaseController {
         if($post == NULL){
             App::abort(404);
         }
-        // add social point 
-        $post->socialPoint ++;
-        $post->save();
+
+        // add social point if it is not robot
+        if (isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/bot|crawl|slurp|spider/i', $_SERVER['HTTP_USER_AGENT'])) {
+            $post->socialPoint ++;
+            $post->save();
+        }
         switch ($social){
             case 'twitter' :
                 $url  = 'https://twitter.com/home?status=';
