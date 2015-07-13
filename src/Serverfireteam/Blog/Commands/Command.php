@@ -36,7 +36,7 @@ class BlogCommand extends Command {
 	public function fire()
 	{
        
-        $this->info('            [ Wellcome to ServerFireTeam Blog Installations ]       ');
+        $this->info('            [ Welcome to ServerFireTeam Blog Installations ]       ');
         
         $this->call('vendor:publish');
         

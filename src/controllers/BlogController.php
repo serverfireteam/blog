@@ -19,7 +19,7 @@ class BlogController extends BaseController {
             $last            = \App\Blog::lastPosts();
             //echo'<pre>';
             //dd($mostRecommended);
-            return View('blog::index',array('title'=>"Wellcome ",'mostRecommended'=>$mostRecommended,'last'=>$last));
+            return View('blog::index',array('title'=>"Welcome ",'mostRecommended'=>$mostRecommended,'last'=>$last));
 	}
 
     public static function seoUrl($string) {
