@@ -12,7 +12,9 @@ class AddColorboxField extends Migration {
 	 */
 	public function up()
 	{
-		DB::statement('ALTER TABLE `blog` ADD `color` VARCHAR(10) NOT NULL AFTER `socialPoint`;');
+		Schema::table('blog', function ($table) {
+			$table->string('color', 10)->after("socialPoint");
+		});
 	}
 
 	/**
@@ -22,7 +24,9 @@ class AddColorboxField extends Migration {
 	 */
 	public function down()
 	{
-		DB::statement('ALTER TABLE `blog` DROP `color`;');
+		Schema::table('blog', function ($table) {
+			$table->dropColumn('color');
+		});
 	}
 
 }
