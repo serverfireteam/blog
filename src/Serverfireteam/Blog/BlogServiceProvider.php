@@ -8,13 +8,13 @@ use Illuminate\Translation;
 class BlogServiceProvider extends ServiceProvider
 {
     protected $defer = false;
-        
+
     public function register()
     {
-        // register panel service provider 
+        // register panel service provider
         $this->app->register('Serverfireteam\Panel\PanelServiceProvider');
 
-        
+
         include __DIR__."/Commands/Command.php";
         $this->app['blog::install'] = $this->app->share(function()
         {
@@ -29,12 +29,12 @@ class BlogServiceProvider extends ServiceProvider
             __DIR__.'/config/blog.php' => config_path('blog.php'),
         ]);
     }
-        
+
     public function boot()
-    {        
+    {
 
 
-        $this->loadViewsFrom(__DIR__.'/../../views', 'blog');
+        $this->loadViewsFrom(base_path('resources/views/blog'), 'blog');
         $this->publishes([
             __DIR__.'/../../views' => base_path('resources/views/blog'),
         ]);
@@ -50,6 +50,6 @@ class BlogServiceProvider extends ServiceProvider
     {
         return array();
     }
-    
-    
+
+
 }
