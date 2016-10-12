@@ -15,7 +15,7 @@ class BlogServiceProvider extends ServiceProvider
         $this->app->register('Serverfireteam\Panel\PanelServiceProvider');
 
 
-        include __DIR__."/Commands/Command.php";
+        include_once __DIR__."/Commands/Command.php";
         $this->app['blog::install'] = $this->app->share(function()
         {
             return new \Serverfireteam\Blog\Commands\BlogCommand();
